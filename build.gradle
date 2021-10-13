@@ -2,10 +2,14 @@
 
 buildscript {
     repositories {
-        jcenter()
+        // 阿里巴巴镜像仓库地址
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:7.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -14,7 +18,11 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        // 阿里巴巴镜像仓库地址
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        google()//新增的
         mavenCentral()
     }
 }

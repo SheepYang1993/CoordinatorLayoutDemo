@@ -1,15 +1,13 @@
 package com.loonggg.coordinatorlayoutdemo;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,14 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.jaeger.library.StatusBarUtil;
-
-import jp.wasabeef.glide.transformations.BlurTransformation;
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout head_layout;
@@ -76,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         loadBlurAndSetStatusBar();
 
         ImageView head_iv = (ImageView) findViewById(R.id.head_iv);
-        Glide.with(this).load(R.mipmap.bg).bitmapTransform(new RoundedCornersTransformation(this,
-                90, 0)).into(head_iv);
+//        Glide.with(this).load(R.mipmap.bg).bitmapTransform(new RoundedCornersTransformation(this,
+//                90, 0)).into(head_iv);
     }
 
     /**
@@ -85,25 +76,25 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadBlurAndSetStatusBar() {
         StatusBarUtil.setTranslucent(MainActivity.this, StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
-        Glide.with(this).load(R.mipmap.bg).bitmapTransform(new BlurTransformation(this, 100))
-                .into(new SimpleTarget<GlideDrawable>() {
-            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-            @Override
-            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super
-                    GlideDrawable> glideAnimation) {
-                head_layout.setBackground(resource);
-                root_layout.setBackground(resource);
-            }
-        });
-
-        Glide.with(this).load(R.mipmap.bg).bitmapTransform(new BlurTransformation(this, 100))
-                .into(new SimpleTarget<GlideDrawable>() {
-            @Override
-            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super
-                    GlideDrawable> glideAnimation) {
-                mCollapsingToolbarLayout.setContentScrim(resource);
-            }
-        });
+//        Glide.with(this).load(R.mipmap.bg).bitmapTransform(new BlurTransformation(this, 100))
+//                .into(new SimpleTarget<GlideDrawable>() {
+//            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+//            @Override
+//            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super
+//                    GlideDrawable> glideAnimation) {
+//                head_layout.setBackground(resource);
+//                root_layout.setBackground(resource);
+//            }
+//        });
+//
+//        Glide.with(this).load(R.mipmap.bg).bitmapTransform(new BlurTransformation(this, 100))
+//                .into(new SimpleTarget<GlideDrawable>() {
+//            @Override
+//            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super
+//                    GlideDrawable> glideAnimation) {
+//                mCollapsingToolbarLayout.setContentScrim(resource);
+//            }
+//        });
     }
 
     @Override
